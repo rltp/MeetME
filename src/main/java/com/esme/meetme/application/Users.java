@@ -8,15 +8,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-class location{
+class Location{
     public Double longitude;
     public Double latitude;
 }
 
-public class Users implements Serializer {
+public class Users {
     public UUID id;
     public Date created;
-    public location position;
+    public Location position;
+
+    public Integer gender;
+    public Integer attraction;
+    public Integer coverSize;
 
     public String name;
     public String city;
