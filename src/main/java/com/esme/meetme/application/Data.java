@@ -1,7 +1,11 @@
 package com.esme.meetme.application;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 
 class Operation<E>{
     public String path;
@@ -45,10 +49,12 @@ public class Data<E>{
 
     public void patch(String key, String value, Operation patch) throws Exception{
         Boolean updated = Boolean.FALSE;
+        ObjectMapper objectMapper = new ObjectMapper();
 
         for(E el : this.list)
             if (el.getClass().getField(key).get(el).toString().equals(value.toString())){
-                el.getClass().getField(patch.path).set(el, patch.value);
+                Class type = el.getClass().getField(patch.path).getType();
+                el.getClass().getField(patch.path).set(el, objectMapper.convertValue(patch.value, type));
                 updated = Boolean.TRUE;
             }
         if(updated == Boolean.FALSE) throw new Exception(key + " not found");
