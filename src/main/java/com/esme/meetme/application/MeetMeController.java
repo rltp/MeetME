@@ -1,13 +1,10 @@
 package com.esme.meetme.application;
 
-import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RequestMapping( "/api/v1" )
@@ -38,8 +35,16 @@ public class MeetMeController {
     }
 
     @RequestMapping ( value = "/users" , method = RequestMethod. GET )
-    public ResponseEntity<List<Users>> getUsers () {
-        return new ResponseEntity<List<Users>>(this.users.getAll(), HttpStatus. OK ) ;
+    public ResponseEntity<JSONObject> getUsers () {
+        JSONObject message = new JSONObject();
+        try{
+            message.put("status", "ok");
+            message.put("content", this.users.getAll());
+        }catch(Exception e){
+            message.put("status", "error");
+            message.put("content", e.getMessage());
+        }
+        return new ResponseEntity<JSONObject>(message, HttpStatus. OK ) ;
     }
 
     @RequestMapping ( value = "/user/{id}" , method = RequestMethod. GET )
