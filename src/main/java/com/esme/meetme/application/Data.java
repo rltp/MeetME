@@ -1,17 +1,11 @@
 package com.esme.meetme.application;
-
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.List;
 
 class Operation<E>{
     public String path;
     public E value;
 }
-
 
 public class Data<E>{
 

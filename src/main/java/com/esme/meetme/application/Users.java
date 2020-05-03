@@ -10,6 +10,11 @@ class Location{
     public Double latitude;
 }
 
+class ageRange {
+    public Integer min;
+    public Integer max;
+}
+
 public class Users implements Serializable{
     public UUID id;
     public Date created;
@@ -19,6 +24,7 @@ public class Users implements Serializable{
     public Integer gender;
     public Integer attraction;
     public Integer coverSize;
+    public ageRange ageRange;
 
     public String name;
     public String city;
@@ -28,6 +34,7 @@ public class Users implements Serializable{
 
     public Users(){
         this.position = new Location();
+        this.ageRange = new ageRange();
         this.pictures = new ArrayList<String>();
     }
 }

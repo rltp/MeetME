@@ -24,6 +24,8 @@ public class MeetMeController {
         user.gender = 1;
         user.attraction = 2;
         user.coverSize = 10;
+        user.ageRange.min = 1;
+        user.ageRange.max = 15;
         user.name = "Emma";
         user.city = "Paris";
         user.birthday = new Date();
@@ -38,7 +40,7 @@ public class MeetMeController {
     public ResponseEntity<JSONObject> getUsers () {
         JSONObject message = new JSONObject();
         try{
-            message.put("status", "ok");
+            message.put("status", "success");
             message.put("content", this.users.getAll());
         }catch(Exception e){
             message.put("status", "error");
@@ -51,7 +53,7 @@ public class MeetMeController {
     public ResponseEntity<JSONObject> getUser (@PathVariable String id) {
         JSONObject message = new JSONObject();
         try{
-            message.put("status", "ok");
+            message.put("status", "success");
             message.put("content", this.users.find("id", id));
         }catch(Exception e){
             message.put("status", "error");
@@ -65,7 +67,7 @@ public class MeetMeController {
         JSONObject message = new JSONObject();
         try{
             this.users.replace("id", id, user);
-            message.put("status", "ok");
+            message.put("status", "success");
             message.put("content", "User updated");
         }catch(Exception e){
             message.put("status", "error");
@@ -79,7 +81,7 @@ public class MeetMeController {
         JSONObject message = new JSONObject();
         try{
             this.users.patch("id", id, op);
-            message.put("status", "ok");
+            message.put("status", "success");
             message.put("content", "Path updated");
         }catch(Exception e){
             message.put("status", "error");
@@ -94,7 +96,7 @@ public class MeetMeController {
         JSONObject message = new JSONObject();
         try{
             this.users.delete("id", id);
-            message.put("status", "ok");
+            message.put("status", "success");
             message.put("content", "User removed");
         }catch(Exception e){
             message.put("status", "error");
