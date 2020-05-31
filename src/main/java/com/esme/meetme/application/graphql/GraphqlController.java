@@ -25,7 +25,6 @@ public class GraphqlController {
 
     public GraphqlController(UserResolver userResolver) {
         GraphQLSchema schema = new GraphQLSchemaGenerator()
-//          .withBasePackages("com.esme.meetme.application.graphql")
             .withOperationsFromSingletons(userResolver)
             .generate();
         graphQL = GraphQL.newGraphQL(schema).build();
@@ -37,10 +36,11 @@ public class GraphqlController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     @ResponseBody
-    public Map<String, Object> executeQuery(@RequestBody Map<String, String> request, HttpServletRequest raw) {
+    public Map<String, Object> executeQuery(@RequestBody GraphQLRequest graphQLRequest, HttpServletRequest raw) {
         ExecutionResult executionResult = graphQL.execute(ExecutionInput.newExecutionInput()
-                .query(request.get("query"))
-                .operationName(request.get("operationName"))
+                .query(graphQLRequest.getQuery())
+                .operationName(graphQLRequest.getOperationName())
+                .variables(graphQLRequest.getVariables())
                 .context(raw)
                 .build());
         return executionResult.toSpecification();

@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Match {
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    public UUID id;
+    private UUID id;
 
     public Date date;
     public UUID user;

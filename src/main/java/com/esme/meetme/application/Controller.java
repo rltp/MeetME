@@ -90,7 +90,7 @@ public class Controller {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.PATCH, consumes = "application/json-patch+json")
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.PATCH, consumes = "application/json")
     public ResponseEntity<String> patchUse(
             @PathVariable(value = "id") UUID id,
             @RequestBody JsonPatch patch)  {
