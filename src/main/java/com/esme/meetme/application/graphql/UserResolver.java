@@ -25,7 +25,6 @@ public class UserResolver {
     }
 
     @GraphQLQuery
-    @JsonProperty("userID")
     public User findUser(UUID id){
         try {
             return userService.findUser(id);
