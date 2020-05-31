@@ -12,10 +12,11 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Data
 public class Settings {
-
-    public UUID id;
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    private UUID id;
 
     public Date created;
     public String email;

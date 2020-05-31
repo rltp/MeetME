@@ -88,7 +88,7 @@ public class MeetmeApplication implements CommandLineRunner {
 			)
 		);
 
-		this.userRepository.findAll().forEach(userEntity -> log.info(userEntity.getMatchEntities().get(0).getResult().toString()));
+		//this.userRepository.findAll().forEach(userEntity -> log.info(userEntity.getMatchEntities().get(0).getResult().toString()));
 	}
 
 	@Transactional

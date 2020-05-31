@@ -12,9 +12,12 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Data
 public class Match {
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     public UUID id;
+
     public Date date;
     public UUID user;
     public Boolean result;
