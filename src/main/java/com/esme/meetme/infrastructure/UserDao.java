@@ -82,7 +82,8 @@ public class UserDao {
     }
 
     public void updateUser(User user){
-
+        UserEntity userEntity = userRepository.save(buildUserEntity(user));
+        buildUser(userEntity, settingsRepository.findByUserEntity(userEntity), pictureRepository.findByUserEntity(userEntity), matchRepository.findByUserEntity(userEntity));
     }
 
     private MatchEntity buildMatchEntity(UserEntity userEntity, Match match) {

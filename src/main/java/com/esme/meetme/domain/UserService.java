@@ -33,7 +33,7 @@ public class UserService {
 
     public void deleteUser(UUID id) { userDao.deleteUser(id); };
 
-    public void patchUser(User user) { userDao.replaceUser(user); }
+    public void patchUser(User user) { userDao.updateUser(user); }
 
     public User replaceUser(User user) { return userDao.replaceUser(user); }
 }
