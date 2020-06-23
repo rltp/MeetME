@@ -52,17 +52,17 @@ public class UserDao {
     public User createUser(User user) throws NotFoundException {
         UserEntity userEntity = userRepository.save(buildUserEntity(user));
 
-        settingsRepository.save(buildSettingsEntity(userEntity, user.getSettings()));
-
-        user.getPictures()
-                .stream()
-                .forEach(pic ->
-                        pictureRepository.save(buildPictureEntity(userEntity, pic)));
-
-        user.getMatchs()
-                .stream()
-                .forEach(match ->
-                        matchRepository.save(buildMatchEntity(userEntity, match)));
+//        settingsRepository.save(buildSettingsEntity(userEntity, user.getSettings()));
+//
+//        user.getPictures()
+//                .stream()
+//                .forEach(pic ->
+//                        pictureRepository.save(buildPictureEntity(userEntity, pic)));
+//
+//        user.getMatchs()
+//                .stream()
+//                .forEach(match ->
+//                        matchRepository.save(buildMatchEntity(userEntity, match)));
 
         return buildUser(
                 userRepository.findById(userEntity.getId()).orElseThrow(NotFoundException::new),
@@ -142,45 +142,45 @@ public class UserDao {
             .birthday(userEntity.getBirthday())
             .description(userEntity.getDescription())
 
-            .settings(
-                Settings.builder()
-                    .id(userEntity.getId())
-                    .created(settingsEntity.getCreated())
-                    .email(settingsEntity.getEmail())
-                    .gender(settingsEntity.getGender())
-                    .attraction(settingsEntity.getAttraction())
-                    .coverSize(settingsEntity.getCoverSize())
-                    .latitude(settingsEntity.getLatitude())
-                    .longitude(settingsEntity.getLongitude())
-                    .ageMin(settingsEntity.getAgeMin())
-                    .ageMax(settingsEntity.getAgeMax())
-                .build()
-            )
-
-            .pictures(
-                pictureEntities.stream()
-                    .map(
-                        pictureEntity -> Picture.builder()
-                            .id(pictureEntity.getId())
-                            .date(pictureEntity.getDate())
-                            .path(pictureEntity.getPath())
-                            .face(pictureEntity.getFace())
-                        .build()
-                    )
-                    .collect(Collectors.toList())
-            )
-
-            .matchs(
-                matchEntities.stream()
-                .map(matchEntity -> Match.builder()
-                    .id(userEntity.getId())
-                    .date(matchEntity.getDate())
-                    .user(matchEntity.getUser())
-                    .result(matchEntity.getResult())
-                    .build()
-                )
-                .collect(Collectors.toList())
-            )
+//            .settings(
+//                Settings.builder()
+//                    .id(userEntity.getId())
+//                    .created(settingsEntity.getCreated())
+//                    .email(settingsEntity.getEmail())
+//                    .gender(settingsEntity.getGender())
+//                    .attraction(settingsEntity.getAttraction())
+//                    .coverSize(settingsEntity.getCoverSize())
+//                    .latitude(settingsEntity.getLatitude())
+//                    .longitude(settingsEntity.getLongitude())
+//                    .ageMin(settingsEntity.getAgeMin())
+//                    .ageMax(settingsEntity.getAgeMax())
+//                .build()
+//            )
+//
+//            .pictures(
+//                pictureEntities.stream()
+//                    .map(
+//                        pictureEntity -> Picture.builder()
+//                            .id(pictureEntity.getId())
+//                            .date(pictureEntity.getDate())
+//                            .path(pictureEntity.getPath())
+//                            .face(pictureEntity.getFace())
+//                        .build()
+//                    )
+//                    .collect(Collectors.toList())
+//            )
+//
+//            .matchs(
+//                matchEntities.stream()
+//                .map(matchEntity -> Match.builder()
+//                    .id(userEntity.getId())
+//                    .date(matchEntity.getDate())
+//                    .user(matchEntity.getUser())
+//                    .result(matchEntity.getResult())
+//                    .build()
+//                )
+//                .collect(Collectors.toList())
+//            )
         .build();
     }
 }
