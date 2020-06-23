@@ -1,0 +1,80 @@
+.spacer {
+  flex: 1;
+}
+.consultation {
+  display: flex;
+  flex-direction: row;
+  // grid-template-columns: 20rem 1fr 1fr 1fr;
+  // grid-gap: .5rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  .lsit{
+    width: 100%;
+    text-align: center;
+  }
+  .details{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.ressource-list {
+  width: 70%;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+}
+
+.card {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: 10px;
+  width: 200px;
+  margin: 0 8px 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+a,
+a:visited,
+a:hover {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #125699;
+}
+
+button{
+  margin: 10px;
+}
+
+mat-form-field{
+  margin-left: 20px;
+}
+.mat-form-field-infix{
+  margin: 10px;
+}

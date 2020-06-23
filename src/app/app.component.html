@@ -1,0 +1,27 @@
+<div class="toolbar" role="banner">
+  <img width="50" alt="MeetMe" src="..\assets\logo.png" />
+  <span>MeetMe</span>
+  <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+
+  <div class="card-container">
+    <div class="card card-small" tabindex="0">
+      <a routerLink="/consult">Consulter les utilisateurs</a>
+    </div>
+
+    <div class="card card-small" tabindex="0">
+      <a routerLink="/create">Créer un utilisateur</a>
+    </div>
+
+    <div class="card card-small" tabindex="0">
+      <a routerLink="/update">Modifier un utilisateur</a>
+    </div>
+
+    <div class="card card-small" tabindex="0">
+      <a routerLink="/delete">Supprimer un utilisateur</a>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,60 @@
+<h2 style='text-align: center'>Liste des utilisateurs</h2>
+<article class="consultation">
+  <div *ngFor="let ressource of ressources" class="card-container">
+    <a class="card" target="_blank" rel="noopener" (click)="onSelect(ressource)">
+      {{ ressource.name }}
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" /></svg>
+    </a>
+  </div>
+</article>
+
+<h2 style='text-align: center'>Détails utilisateur</h2>
+<div class="details">
+  <div *ngIf="selectedRessource">
+    <!-- <h2>{{selectedRessource.name | uppercase}}</h2> -->
+    <h1>{{selectedRessource.name}}</h1>
+    <mat-form-field class="example-full-width">
+
+      <mat-label>ID</mat-label>
+
+      <input matInput placeholder="Id de la ressource" value="{{selectedRessource.id}}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+
+      <mat-label>Nom</mat-label>
+
+      <input matInput placeholder="Nom de le l'utilisateur" value="{{selectedRessource.name}}">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+
+      <mat-label>Ville</mat-label>
+
+      <input matInput placeholder="Nom de la ville" value="{{selectedRessource.city}}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+
+      <mat-label>Anniversaire</mat-label>
+
+      <input matInput placeholder="Date d'anniversaire" value="{{selectedRessource.birthday | date: 'dd/MM/yyyy'}}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+
+      <mat-label>Description</mat-label>
+
+      <textarea matInput placeholder="Description" value="{{selectedRessource.description}}"></textarea>
+    </mat-form-field>
+    <div>
+      <button mat-fab color="primary" title="Modifier" type="submit"
+        (click)="updateRessource(selectedRessource, selectedRessource.id)"
+        aria-label="Example icon button with a create icon">
+        <mat-icon>create</mat-icon>
+      </button>
+      <button mat-fab color="warn" title="Supprimer" type="submit" (click)="deleteRessource(selectedRessource.id)"
+        aria-label="Example icon button with a delete icon">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup]="ressourceForm" (ngSubmit)="onSubmit(ressourceForm.value)">
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nom</mat-label>
+        <input matInput placeholder="Nom de l'utilisateur" type="text" formControlName="name">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Ville</mat-label>
+        <input matInput placeholder="Nom de la ville" type="text" formControlName="city">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Anniversaire</mat-label>
+        <input matInput placeholder="Date d'anniversaire" type="text" formControlName="birthday">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Description" type="text" formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-fab title="Créer" color="primary" type="submit">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+  </form>
+</div>

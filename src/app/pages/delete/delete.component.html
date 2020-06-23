@@ -1,0 +1,16 @@
+<div class="container">
+  <form [formGroup]="deleteForm" (ngSubmit)="onSubmit(deleteForm.value)">
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="Id de l'utilisateur" formControlName="id">
+      </mat-form-field>
+    </div>
+
+    <button mat-fab color="warn" type="submit" title="Supprimer" aria-label="Example icon button with a delete icon">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+
+  </form>
+</div>
